@@ -3,7 +3,7 @@ Código original proveniente de https://github.com/pedropramos/gerador-horarios.
 
 Usage:
 - `./run.sh <port number>`
-- To kill the container: docker kill <container id>
+- To kill the container: `docker kill <container id>`
 
 Change logs:
 - Moved backend to python3
