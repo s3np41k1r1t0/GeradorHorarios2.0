@@ -10,7 +10,3 @@ services:
         - FLASK_APP=app/main.py
         - FLASK_DEBUG=1
         - 'RUN=flask run --host=0.0.0.0 --port=80'
-    networks:
-        - everything
-networks:
-    everything:
