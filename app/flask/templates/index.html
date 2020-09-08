@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Gerador de Horarios</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script type="text/javascript">
+			$(function() {
+				$('input#newCourse').bind('click', function(e) {
+					e.preventDefault();
+					$.post('/api/processUrl', {'url':$('#courseURL').val()} , function(data) {
+						document.getElementById("errorMessage").style.visibility = "hidden";
+						document.getElementById('courses').innerHTML = data + document.getElementById('courses').innerHTML;
+						document.getElementById('courseURL').value = "";
+					})
+					.fail(function(data) {
+						document.getElementById("errorMessage").innerHTML = data.responseText;
+						document.getElementById("errorMessage").style.visibility = "visible";
+					});
+					return false;
+				});
+				/*$('button#submit').bind('click', function() {
+					$.post('/', $('#coursesForm').serialize() , function(data) {
+						document.getElementById("one").innerHTML = data;
+					})
+					.fail(function(data) {
+						document.getElementById("errorMessage").innerHTML = data.responseText;
+						document.getElementById("errorMessage").style.visibility = "visible";
+					});
+					return false;
+				});*/
+			});
+			function removeCourse(course) { course.innerHTML = "" }
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<h1 style="color: azure;font-size: 3rem;">Gerador de Horários Compactos</h1>
+					<p style="color: azure;font-size: 1.1rem;">Introduza o URL de cada disciplina no formulário abaixo e prima o botão Add.
+																 Pode de seguida escolher os tipos de aula a incluir no horário. Para terminar, prima Submit.</p>
+				</div>
+				<h3>Powered by:</h3>
+				<img src="images/sardinha.jpg">
+                <h6 style="padding-top: 25px;">Copyrigths: 2013-2015 Pedro Ramos, 2020 Bruno Mendes. Template by: <a href="html5up.net">HTML5UP</a></h6>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<form action="/" method="post" style="text-align: center;">
+							<div id='errorMessage' style="color:#d44c5c;visibility:hidden"></div>  
+							<input type="text" id="courseURL" value="" style="background-color: #dfdfdf;margin-bottom: 6px;">
+							<input type="submit" value="Add" id=newCourse style="align-self: center;">
+							<input type="submit" value="Submit" id=submit style="align-self: center;">
+							<div id="courses" style="padding-top: 20px;">
+							</div>	
+						</form>
+					</section>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
