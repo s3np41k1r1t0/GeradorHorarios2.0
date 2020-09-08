@@ -9,4 +9,4 @@ if [ -z $1 ]; then
     exit
 fi
 
-./gen-docker-compose.sh $1 && ./build.sh && ./start.sh
+./gen-docker-compose.sh $1 && ./build.sh && ./start.sh && echo "Gerador de Horarios running on port $1"
