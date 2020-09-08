@@ -1,4 +1,4 @@
-# Gerador de Horarios 2.0 
+# Gerador de Horários 2.0 
 Código original proveniente de https://github.com/pedropramos/gerador-horarios.
 
 Usage:
