@@ -1,5 +1,5 @@
 # Gerador de Horários 2.0 
-Código original proveniente de https://github.com/pedropramos/gerador-horarios.
+Código original: https://github.com/pedropramos/gerador-horarios.
 
 Usage:
 - `./run.sh <port number>`
